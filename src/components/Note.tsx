@@ -2,7 +2,7 @@
 
 import { Note as NoteModel } from "@prisma/client";
 import { useState } from "react";
-// import AddEditNoteDialog from "./AddEditNoteDialog";
+ import AddEditNoteDialog from "./AddEditNoteDialog";
 import {
   Card,
   CardContent,
@@ -41,11 +41,11 @@ export default function Note({ note }: NoteProps) {
           <p className="whitespace-pre-line">{note.content}</p>
         </CardContent>
       </Card>
-      {/* <AddEditNoteDialog
+      <AddEditNoteDialog
         open={showEditDialog}
         setOpen={setShowEditDialog}
         noteToEdit={note}
-      /> */}
+      />
     </>
   );
 }

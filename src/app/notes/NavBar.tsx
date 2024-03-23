@@ -2,7 +2,7 @@
 
 import logo from "@/assets/logo.png";
 // import AIChatButton from "@/components/AIChatButton";
- import AddNoteDialog from "@/components/AddNoteDialog";
+ import AddNoteDialog from "@/components/AddEditNoteDialog";
 // import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
@@ -16,7 +16,7 @@ import { useState } from "react";
 export default function NavBar() {
   const { theme } = useTheme();
 
-  const [showAddNoteDialog, setShowAddNoteDialog] = useState(false);
+  const [showAddEditNoteDialog, setShowAddEditNoteDialog] = useState(false);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function NavBar() {
               }}
             />
             {/* <ThemeToggleButton /> */}
-            <Button onClick={() => setShowAddNoteDialog(true)}>
+            <Button onClick={() => setShowAddEditNoteDialog(true)}>
               <Plus size={20} className="mr-2" />
               Add Note
             </Button>
@@ -44,8 +44,8 @@ export default function NavBar() {
         </div>
       </div>
       <AddNoteDialog
-        open={showAddNoteDialog}
-        setOpen={setShowAddNoteDialog}
+        open={showAddEditNoteDialog}
+        setOpen={setShowAddEditNoteDialog}
       />
     </>
   );
