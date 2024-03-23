@@ -3,6 +3,7 @@
 import logo from "@/assets/logo.png";
 // import AIChatButton from "@/components/AIChatButton";
  import AddNoteDialog from "@/components/AddEditNoteDialog";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 // import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
@@ -34,7 +35,7 @@ export default function NavBar() {
                 elements: { avatarBox: { width: "2.5rem", height: "2.5rem" } },
               }}
             />
-            {/* <ThemeToggleButton /> */}
+            <ThemeToggleButton />
             <Button onClick={() => setShowAddEditNoteDialog(true)}>
               <Plus size={20} className="mr-2" />
               Add Note
