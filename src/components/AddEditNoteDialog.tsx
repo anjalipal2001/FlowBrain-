@@ -1,5 +1,8 @@
 import { CreateNoteSchema, createNoteSchema } from "@/lib/validation/note";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Note } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Dialog,
@@ -19,9 +22,6 @@ import {
 import { Input } from "./ui/input";
 import LoadingButton from "./ui/loading-button";
 import { Textarea } from "./ui/textarea";
-import { useRouter } from "next/navigation";
-import { Note } from "@prisma/client";
-import { useState } from "react";
 
 interface AddEditNoteDialogProps {
   open: boolean;
@@ -35,7 +35,9 @@ export default function AddEditNoteDialog({
   noteToEdit,
 }: AddEditNoteDialogProps) {
   const [deleteInProgress, setDeleteInProgress] = useState(false);
+
   const router = useRouter();
+
   const form = useForm<CreateNoteSchema>({
     resolver: zodResolver(createNoteSchema),
     defaultValues: {
@@ -141,7 +143,7 @@ export default function AddEditNoteDialog({
               <LoadingButton
                 type="submit"
                 loading={form.formState.isSubmitting}
-                 disabled={deleteInProgress}
+                disabled={deleteInProgress}
               >
                 Submit
               </LoadingButton>
